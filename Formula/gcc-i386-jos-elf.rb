@@ -16,6 +16,7 @@ class GccI386JosElf < Formula
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
+  depends_on "binutils-i386-jos-elf"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
@@ -58,6 +59,9 @@ class GccI386JosElf < Formula
 
     args = [
       "--prefix=#{prefix}",
+      "--libdir=#{lib}/gcc/#{version_suffix}",
+      # Make most executables versioned to avoid conflicts.
+      "--program-suffix=-#{version_suffix}",
       "--build=x86_64-apple-darwin#{osmajor}",
       "--host=x86_64-apple-darwin#{osmajor}",
       "--target=i386-jos-elf",
