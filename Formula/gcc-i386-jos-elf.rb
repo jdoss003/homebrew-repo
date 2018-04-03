@@ -15,7 +15,7 @@ class GccI386JosElf < Formula
 
   depends_on "gmp"
   depends_on "libmpc"
-  depends_on "mpfr
+  depends_on "mpfr"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
