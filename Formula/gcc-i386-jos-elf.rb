@@ -40,7 +40,7 @@ class GccI386JosElf < Formula
 
       system "make", "all-gcc"
       system "make", "install-gcc"
-      system "make", "all-target-libgcc", *make_args
+      system "make", "all-target-libgcc"
       system "make", "install-target-libgcc"
 
     end
