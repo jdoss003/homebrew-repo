@@ -24,7 +24,7 @@ class QemuI386JosElf < Formula
       "--prefix=#{prefix}",
       "--disable-kvm",
       "--disable-sdl",
-      "--target-list=\"i386-softmmu x86_64-softmmu\""
+      "--target-list=i386-softmmu x86_64-softmmu"
     ]
 
     # Cocoa and SDL2/GTK+ UIs cannot both be enabled at once.
