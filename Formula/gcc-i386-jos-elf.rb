@@ -16,7 +16,7 @@ class GccI386JosElf < Formula
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "binutils-i386-jos-elf"
+  depends_on "binutils-i386-jos-elf" => :build
 
   def install
     args = [

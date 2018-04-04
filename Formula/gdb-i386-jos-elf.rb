@@ -8,7 +8,7 @@ class GdbI386JosElf < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-8.1.tar.xz"
   sha256 "af61a0263858e69c5dce51eab26662ff3d2ad9aa68da9583e8143b5426be4b34"
 
-  depends_on "gcc-i386-jos-elf"
+  depends_on "gcc-i386-jos-elf" => :build
 
   fails_with :clang do
     build 800
