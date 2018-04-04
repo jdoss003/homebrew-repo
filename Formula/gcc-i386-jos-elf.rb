@@ -29,8 +29,8 @@ class GccI386JosElf < Formula
       "--disable-multilib",
       "--with-newlib",
       "--without-headers",
-      "--without-isl"
-      "--enable-languages=c",
+      "--without-isl",
+      "--enable-languages=c"
     ]
 
     mkdir "build" do
