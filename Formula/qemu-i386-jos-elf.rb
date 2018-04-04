@@ -13,7 +13,7 @@ class QemuI386JosElf < Formula
   depends_on "libtool" => :build
   #depends_on "jpeg"
   #depends_on "gnutls"
-  #depends_on "glib"
+  depends_on "glib"
   #depends_on "ncurses"
   depends_on "pixman"
 
