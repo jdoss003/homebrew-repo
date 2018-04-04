@@ -15,7 +15,7 @@ class GccI386JosElf < Formula
 
   depends_on "gmp" => :build
   depends_on "libmpc"
-  depends_on "mpfr" => build
+  depends_on "mpfr" => :build
   depends_on "binutils-i386-jos-elf"
 
   def install
@@ -42,7 +42,7 @@ class GccI386JosElf < Formula
       system "make", "all-target-libgcc"
       system "make", "install-target-libgcc"
 
-      binutils = #{Formula["i386-elf-binutils"].prefix}
+      binutils = #{Formula["binutils-i386-jos-elf"].prefix}
       FileUtils.ln_sf "#{binutils}/i386-jos-elf", "#{prefix}/i386-jos-elf"
     end
   end
