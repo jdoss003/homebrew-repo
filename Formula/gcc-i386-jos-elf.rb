@@ -42,7 +42,7 @@ class GccI386JosElf < Formula
       system "make", "all-target-libgcc"
       system "make", "install-target-libgcc"
 
-      binutils = #{Formula["binutils-i386-jos-elf"].prefix}
+      binutils = Formula["binutils-i386-jos-elf"].prefix
       FileUtils.ln_sf "#{binutils}/i386-jos-elf", "#{prefix}/i386-jos-elf"
     end
   end
