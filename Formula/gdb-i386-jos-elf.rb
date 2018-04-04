@@ -35,7 +35,7 @@ class GdbI386JosElf < Formula
     ]
 
     system "./configure", *args
-    system "make", "all"
+    system "make"
 
     # Don't install bfd or opcodes, as they are provided by binutils
     inreplace ["bfd/Makefile", "opcodes/Makefile"], /^install:/, "dontinstall:"
@@ -53,5 +53,9 @@ class GdbI386JosElf < Formula
 
       echo "set startup-with-shell off" >> ~/.gdbinit
     EOS
+  end
+
+  test do
+    system "i386-jos-elf-gdb", "--version"
   end
 end

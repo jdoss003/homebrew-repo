@@ -13,12 +13,14 @@ class BinutilsI386JosElf < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--target=i386-jos-elf",
+                          "--disable-multilib",
+                          "--disable-nls",
                           "--disable-werror"
     system "make"
     system "make", "install"
   end
 
   test do
-    assert_match "main", shell_output("#{bin}/gnm #{bin}/gnm")
+    system "i386-jos-elf-as", "--version"
   end
 end

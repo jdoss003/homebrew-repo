@@ -13,24 +13,23 @@ class GccI386JosElf < Formula
     sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
   end
 
-  depends_on "gmp"
+  depends_on "gmp" => :build
   depends_on "libmpc"
-  depends_on "mpfr"
-  depends_on "binutils-i386-jos-elf" => :build
+  depends_on "mpfr" => build
+  depends_on "binutils-i386-jos-elf"
 
   def install
     args = [
       "--prefix=#{prefix}",
       "--target=i386-jos-elf",
       "--disable-werror",
+      "--disable-nls",
       "--disable-libssp",
       "--disable-libmudflap",
       "--disable-multilib",
       "--with-newlib",
       "--without-headers",
-      "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--without-isl"
       "--enable-languages=c",
     ]
 
@@ -43,6 +42,12 @@ class GccI386JosElf < Formula
       system "make", "all-target-libgcc"
       system "make", "install-target-libgcc"
 
+      binutils = #{Formula["i386-elf-binutils"].prefix}
+      FileUtils.ln_sf "#{binutils}/i386-jos-elf", "#{prefix}/i386-jos-elf"
     end
+  end
+
+  test do
+    system "i386-jos-elf-gcc", "--version"
   end
 end
